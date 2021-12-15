@@ -3,6 +3,13 @@
 // convenience to get you started writing code faster.
 //
 
+// // ['  +-+', 
+//     '    |', 
+//     '+-+-+', 
+//     '| | -', 
+//     '+-+-+']
+
+
 export function count(array) {
 
   if (array.length === 0) {
@@ -12,16 +19,14 @@ export function count(array) {
 let indexArray = [];
 let splitArray = [];
 let rectangle = 0;
+
   
   for (let i = 0; i<array.length; i++) {
       for (let j = 0; j<array[i].length; j++) {
         if (array[i].charAt(j) === "+") {
-          indexArray.push(j)}
-      // if (array[i+1].charAt(j) === "+" || array[i+1].charAt(j) !== "|" || array[i-1].charAt(j) !== "|" || array[i+1].charAt(j) !== "|") {
-      //   rectangle--;
-      // }
-    } } 
-  
+          indexArray.push(j);
+      }}}
+ 
   console.log("indexArray" ,indexArray)
   
 if (indexArray.length===0) {
@@ -47,6 +52,29 @@ for (let l = 0; l<splitArray.length; l++) {
             rectangle++;
           }
         }}}}}}}
+
+   for (let s = 0; s<array.length; s++) {
+      for (let t = 0; t<array[s].length; t++) {
+        if (array[s].charAt(t) === "+") {
+          if (isNotRectangle(s,t)) {
+            rectangle--;
+          }
+      }}}
+  
+    function isNotRectangle(num, index) {
+        if (array[num - 1] === undefined) {
+     if (array[num+1].charAt(index) !== "+" && array[num+1].charAt(index) !== "|" ) {
+       return true;
+     }}
+       if (array[num + 1] === undefined) {
+     if (array[num-1].charAt(index) !== "+" && array[num-1].charAt(index) !== "|" ) {
+       return true;
+     }}
+       if (array[num + 1] !== undefined && array[num - 1] !== undefined) {
+      if (array[num-1].charAt(index) !== "+" && array[num-1].charAt(index) !== "|" && array[num+1].charAt(index) !== "|" && array[num+1].charAt(index) !== "|") {
+        return true
+      }}
+       return false }
   
 console.log("rectangle", rectangle)
 console.log("splitArray",splitArray) 
@@ -54,30 +82,5 @@ return rectangle;
 };
 
 
-  // for (let l = 0; l<indexArray.length; l++) {
-  //       for(let m=0; m<indexArray.length; m++) {
-  //         for (let n = 0; n<indexArray.length; n++) {
-  //       for(let p=0; p<indexArray.length; p++) {
-  //         if (indexArray[l] === indexArray[m] && indexArray[n] === indexArray[p] && l<m && n<p && indexArray[l] < indexArray[n]) {
-  //           rectangle++;           
-  //         }
-  //       }}}}
 
 
-// if (splitArray[l][m] + splitArray[l][m+1] === splitArray[n][p]+splitArray[n][p+1]||
-//              splitArray[l][m] + splitArray[l][m+1] === splitArray[n][p]+splitArray[n][p+2]||
-//              splitArray[l][m] + splitArray[l][m+1] === splitArray[n][p]+splitArray[n][p+3]||
-//              splitArray[l][m] + splitArray[l][m+1] === splitArray[n][p]+splitArray[n][p+4]||
-//              splitArray[l][m] + splitArray[l][m+2] === splitArray[n][p]+splitArray[n][p+1]||
-//              splitArray[l][m] + splitArray[l][m+2] === splitArray[n][p]+splitArray[n][p+2]||
-//              splitArray[l][m] + splitArray[l][m+2] === splitArray[n][p]+splitArray[n][p+3]||
-//              splitArray[l][m] + splitArray[l][m+2] === splitArray[n][p]+splitArray[n][p+4]||
-//              splitArray[l][m] + splitArray[l][m+3] === splitArray[n][p]+splitArray[n][p+1]||
-//              splitArray[l][m] + splitArray[l][m+3] === splitArray[n][p]+splitArray[n][p+2]||
-//              splitArray[l][m] + splitArray[l][m+3] === splitArray[n][p]+splitArray[n][p+3]||
-//              splitArray[l][m] + splitArray[l][m+3] === splitArray[n][p]+splitArray[n][p+4]||
-//              splitArray[l][m] + splitArray[l][m+4] === splitArray[n][p]+splitArray[n][p+1]||
-//              splitArray[l][m] + splitArray[l][m+4] === splitArray[n][p]+splitArray[n][p+2]||
-//              splitArray[l][m] + splitArray[l][m+4] === splitArray[n][p]+splitArray[n][p+3]||
-//              splitArray[l][m] + splitArray[l][m+4] === splitArray[n][p]+splitArray[n][p+4]){
-//             rectangle++;
